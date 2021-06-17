@@ -3,7 +3,7 @@ const express = require("express");
 const mangojs = require("mangojs");
 const app = express(); 
 
-const logger; // = require(""); 
+const logger; // = require("morgan in the example"); 
 
 // app.use 
 app.use(logger("dev")); 
@@ -20,3 +20,14 @@ const db = mangojs(databaseURL, collection);
 db.on("error", error => {
     console.log("Database Error: ", error); 
 }); 
+
+
+/* -- User Routes -- */
+
+
+
+
+/* -- Listing on Port 3000 -- */
+app.listen(3000, () => {
+    console.log("App running on port 3000");
+});
