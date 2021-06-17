@@ -3,6 +3,9 @@ const express = require("express");
 const mangojs = require("mangojs");
 const app = express(); 
 
+require("dotenv").config();
+
+
 const logger; // = require("morgan in the example"); 
 
 // app.use 
@@ -12,18 +15,21 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-// Creating the db 
-const databaseURL; // ="warmup for example"
-const collection; // = ["books for example"]
-
-const db = mangojs(databaseURL, collection); 
-db.on("error", error => {
-    console.log("Database Error: ", error); 
-}); 
-
-
 /* -- User Routes -- */
 
+
+//
+
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/workout',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    }
+  );
+  
 
 
 
