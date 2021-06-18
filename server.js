@@ -25,7 +25,7 @@ mongoose.connect(
       useCreateIndex: true,
       useFindAndModify: false
     }
-  );
+  ); // useful for connection to Heroku 
   
 
 /* -- Listing on Port 3000 -- */
