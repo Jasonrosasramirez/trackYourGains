@@ -3,9 +3,7 @@ const express = require("express");
 const mangojs = require("mangojs");
 const app = express(); 
 
-require("dotenv").config();
-
-
+require("dotenv").config(); // references the .env file
 const logger; // = require("morgan in the example"); 
 
 // app.use 
@@ -18,10 +16,9 @@ app.use(express.static("public"));
 /* -- User Routes -- */
 
 
-//
-
+/* -- mongoose database -- */
 mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/workout',
+    process.env.MONGODB_URI || 'mongodb://localhost/workout', // from mongoDB Atlas. 
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -30,8 +27,6 @@ mongoose.connect(
     }
   );
   
-
-
 
 /* -- Listing on Port 3000 -- */
 app.listen(3000, () => {
