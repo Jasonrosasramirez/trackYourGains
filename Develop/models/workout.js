@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 // a collection of objects recording the workouts. As stated in the readme 
 const workoutSchema = new Schema({
-    
+
     // the required template below. 
     day: {
         type: Date,         // defining the object type  
@@ -19,19 +19,20 @@ const workoutSchema = new Schema({
         name: {
             type: String, 
             trim: true, 
-            required: "What is the name of your exercise?"
+            required: "What is the name of your exercise? "
         }, 
 
-        type: {},
+        type: {
+            type: String, 
+            trim: true, 
+            required: "What kind of workout is this? "
+        },
 
-        weight: {}, 
-        
-        sets: {}, 
-        
-        reps: {}, 
-        
-        duration: {}
-
+        weight: { type: Number}, 
+        sets: { type: Number}, 
+        reps: { type: Number}, 
+        duration: { type: Number}, 
+        distance: { Type: Number}
     },
 
     totalDuration: {
