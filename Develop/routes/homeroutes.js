@@ -27,7 +27,20 @@ router.get("/", (req, res) => {
 
 // loads the exercise html file 
 router.get("exercise", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/exercise.html"));
+    res.sendFile(path.join(__dirname, "../public/exercise.html")); // the exercise script contains an add exercise funtion. 
+});
+
+// loads the stats html file
+router.get("stats", (req, res) => {
+    res.sendFile(path.join(_dirname, "../public/stats.html"));
 });
 
 
+
+/*
+
+The __dirname in a node script returns the path of the folder where the current JavaScript file resides. 
+__filename and __dirname are used to get the filename and directory name of the currently executing file. 
+The current working directory is the path of the folder where the node command executed.
+
+*/ 

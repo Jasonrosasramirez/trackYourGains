@@ -21,6 +21,7 @@ const workoutSeed = [
       },
     ],
   },
+
   {
     day: new Date(new Date().setDate(new Date().getDate() - 8)),
     exercises: [
@@ -34,6 +35,7 @@ const workoutSeed = [
       },
     ],
   },
+
   {
     day: new Date(new Date().setDate(new Date().getDate() - 7)),
     exercises: [
@@ -47,6 +49,7 @@ const workoutSeed = [
       },
     ],
   },
+
   {
     day: new Date(new Date().setDate(new Date().getDate() - 6)),
     exercises: [
@@ -58,6 +61,7 @@ const workoutSeed = [
       },
     ],
   },
+
   {
     day: new Date(new Date().setDate(new Date().getDate() - 5)),
     exercises: [
@@ -71,6 +75,7 @@ const workoutSeed = [
       },
     ],
   },
+
   {
     day: new Date(new Date().setDate(new Date().getDate() - 4)),
     exercises: [
@@ -84,6 +89,7 @@ const workoutSeed = [
       },
     ],
   },
+
   {
     day: new Date(new Date().setDate(new Date().getDate() - 3)),
     exercises: [
@@ -97,6 +103,7 @@ const workoutSeed = [
       },
     ],
   },
+
   {
     day: new Date(new Date().setDate(new Date().getDate() - 2)),
     exercises: [
@@ -110,6 +117,7 @@ const workoutSeed = [
       },
     ],
   },
+
   {
     day: new Date(new Date().setDate(new Date().getDate() - 1)),
     exercises: [
@@ -123,6 +131,7 @@ const workoutSeed = [
       },
     ],
   },
+  
 ];
 
 db.Workout.deleteMany({})
