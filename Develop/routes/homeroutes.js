@@ -36,6 +36,10 @@ router.get("stats", (req, res) => {
 });
 
 
+/* -- export -- */
+module.exports = router; // will be refered in index.js
+
+
 
 /*
 
