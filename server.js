@@ -13,7 +13,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use(express.static("public"));
-app.use(require("./Develop/routes/index.js"));
 
 
 /* -- mongoose database -- */
@@ -27,6 +26,9 @@ mongoose.connect(
     }
   ); // useful for connection to Heroku 
  
+
+app.use(require("./Develop/routes/index.js"));
+
 
 /* -- Listing on Port 3000 -- */
 app.listen(PORT, () => {
