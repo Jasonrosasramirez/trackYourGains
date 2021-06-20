@@ -9,13 +9,11 @@ require("dotenv").config(); // references the .env file
 
 
 // app.use 
-app.use(logger("dev")); 
 app.use(express.urlencoded({extended: true})); 
 app.use(express.json());
 
 app.use(express.static("public"));
-
-/* -- User Routes -- */
+app.use(require("./Develop/routes/index.js"));
 
 
 /* -- mongoose database -- */
@@ -28,9 +26,9 @@ mongoose.connect(
       useFindAndModify: false
     }
   ); // useful for connection to Heroku 
-  
+ 
 
 /* -- Listing on Port 3000 -- */
-app.listen(3000, () => {
-    console.log("App running on port 3000");
+app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}`); // displaying the variable port information. 
 });
