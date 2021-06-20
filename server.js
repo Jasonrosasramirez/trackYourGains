@@ -1,10 +1,12 @@
 // Basic Imports 
 const express = require("express");
-const mangojs = require("mangojs");
+const mongoose = require("mongoose");
 const app = express(); 
 
+const PORT = process.env.PORT || 3000; 
+
 require("dotenv").config(); // references the .env file
-const logger; // = require("morgan in the example"); 
+
 
 // app.use 
 app.use(logger("dev")); 
