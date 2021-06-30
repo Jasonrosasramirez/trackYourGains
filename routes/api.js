@@ -46,12 +46,18 @@ router.get("/workouts", (req, res) => {
     .catch(err => {
         res.status(400).json(err);
     });
+});
 
-})
-
-
-
-
+// The workout graphs 
+router.get("workouts/range", async (req, res) => {
+    Workout.aggregate([/* enter the array of objects here */])
+    .then(workoutDB => {
+        res.json(workoutDB);
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    });
+}); 
 
 
 /* -- exporting -- */
