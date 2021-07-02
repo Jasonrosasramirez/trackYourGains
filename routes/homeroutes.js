@@ -26,12 +26,12 @@ router.get("/", (req, res) => {
 });
 
 // loads the exercise html file 
-router.get("exercise", (req, res) => {
+router.get("/exercise", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/exercise.html")); // the exercise script contains an add exercise funtion. 
 });
 
 // loads the stats html file
-router.get("stats", (req, res) => {
+router.get("/stats", (req, res) => {
     res.sendFile(path.join(_dirname, "../public/stats.html"));
 });
 

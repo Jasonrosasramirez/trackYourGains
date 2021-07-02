@@ -10,9 +10,8 @@ const apiRoutes = require("./api.js");
 
 /* -- Use -- */
 router.use("/", homeRoutes); 
-router.use("/api", apiRoutes)
+router.use("/api", apiRoutes);
 
 
-
-/* -- ecporting -- */
+/* -- exporting -- */
 module.exports = router; 
