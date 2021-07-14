@@ -31,29 +31,69 @@ router.post("/workouts", (req, res) => {
 });
 
 // add a new exercise to the workout
-router.put("/workouts/:id", (req, res) => {
-    Workout.updateOne({
-        _id: mongojs.ObjectId(req.params.id)
-    }, {
-            $push: {
-                exercises: req.body, 
-            }
-    }).then(workoutDB => {
-        res.json(workoutDB); 
-    }).catch(err => {
-        res.status(400).json(err); // reports the errors as a json format
-    });
+router.put("/workouts/:id", ({ body, params }, res) => {
+    Workout.findByIdAndUpdate(
+        params.id, 
+        {$push: {
+            exercises: body 
+        }}, 
+
+        {
+            new: true, 
+            runValidators: true, 
+        }
+    )
+    .then(workoutDB => {
+        res.json(workoutDB);    
+    })
+    .catch(err => {
+        res.json(err);
+    });  
+
+    //     {
+    //     _id: mongojs.ObjectId(req.params.id)
+    // }, {
+    //         $push: {
+    //             exercises: req.body, 
+    //         }
+    // }).then(workoutDB => {
+    //     res.json(workoutDB); 
+    // }).catch(err => {
+    //     res.status(400).json(err); // reports the errors as a json format
+    // });
 }); 
 
 // retreive all workouts 
 router.get("/workouts", (req, res) => {
-    Workout.find({}).sort({ day: 1 })
-    .then(workoutDB => { // a promise is used here 
-        res.json(workoutDB);
+    
+    Workout.aggregate([
+        {
+            $addfields: {
+                totalDuration: {
+                    $sum: "$exercises.duration"
+                }
+            }
+        }
+    ])
+    .sort({
+        _id:-1
+    }).limit(10)
+    .then(workoutDB => {
+        res.json(workoutDB);    
     })
     .catch(err => {
-        res.status(400).json(err);
-    });
+        res.json(err);
+    });  
+    
+    
+    
+    // Workout.find({}).sort({ day: 1 })
+    // .then(workoutDB => { // a promise is used here 
+    //     res.json(workoutDB);
+    // })
+    // .catch(err => {
+    //     res.status(400).json(err);
+    // });
 });
 
 // The workout graphs 

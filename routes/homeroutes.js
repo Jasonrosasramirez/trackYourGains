@@ -32,7 +32,7 @@ router.get("/exercise", (req, res) => {
 
 // loads the stats html file
 router.get("/stats", (req, res) => {
-    res.sendFile(path.join(_dirname, "../public/stats.html"));
+    res.sendFile(path.join(__dirname, "../public/stats.html"));
 });
 
 
